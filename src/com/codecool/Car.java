@@ -18,6 +18,10 @@ public class Car extends Vehicle {
         setName(vehicleNames.get(randomIndexOfName1) + " " + vehicleNames.get(randomIndexOfName2));
     }
 
+    @Override
+    public String toString() {
+        return getName();
+    }
 }
 
 /*

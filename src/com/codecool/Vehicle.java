@@ -2,7 +2,7 @@ package com.codecool;
 
 import java.util.Random;
 
-class Vehicle {
+abstract class Vehicle {
 
     private int speed;
     private String name;
@@ -46,9 +46,8 @@ class Vehicle {
     }
 
 
-    void MoveForAnHour() {
-        setDistanceTraveled(distanceTraveled + speed);
-    }
+    abstract void moveForAnHour(Race race);
+}
 
 
 
@@ -69,4 +68,4 @@ Truck // speed: 100km/h. 5% chance of breaking down for 2 hours.
  moveForAnHour(Race race)
      */
 
-}
+

@@ -8,7 +8,66 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
+    List<Car> cars = new ArrayList<>();
+    List<Truck> trucks = new ArrayList<>();
 
+
+    int timeTillBrokenTruck;
+    private boolean isThereABrokenTruck = false;
+
+    public boolean isThereABrokenTruck() {
+        return isThereABrokenTruck;
+    }
+
+
+    public void setIsThereABrokenTruck(boolean thereABrokenTruck) {
+        isThereABrokenTruck = thereABrokenTruck;
+    }
+
+
+    public void createVehicles() {
+        for (int i = 1; i < 11; i++) {
+            cars.add(new Car());
+        }
+
+        for (int i = 1; i < 11; i++) {
+            trucks.add(new Truck());
+        }
+    }
+
+    public void simulateRace(Race race) {
+        for (int round = 0; round < 50; round++) {
+            for (int i = 0; i < 10; i++) {
+                cars.get(i).moveForAnHour(race);
+                System.out.println("Racecar with " + cars.get(i).getName() + " drived " + cars.get(i).getDistanceTraveled() + " kms");
+
+                trucks.get(i).moveForAnHour(race);
+                System.out.println("Truck no. " + trucks.get(i).getName() + " drived " + trucks.get(i).getDistanceTraveled() + " kms");
+
+                if (trucks.get(i).getBreakdownTurnsLeft() > 0 && trucks.get(i).getBreakdownTurnsLeft() >= timeTillBrokenTruck) {
+                    timeTillBrokenTruck = trucks.get(i).getBreakdownTurnsLeft();
+                    System.out.println("\u001B[31mNo. " + trucks.get(i).getName() + " truck is breaked down...");
+                }
+
+                System.out.println("\u001B[0m");
+
+            }
+
+            Weather.setRaining();
+
+        }
+    }
+
+    public void printRaceResults() {
+
+        for (Car thisCar : cars) {
+            System.out.println(thisCar.getName() + "\n\tDistance: " + thisCar.getDistanceTraveled() + "\n--------------------");
+        }
+
+        for (Truck thisTruck : trucks) {
+            System.out.println("Truck no. " + thisTruck.getName() + "\n\tDistance: " + thisTruck.getDistanceTraveled() + "\n--------------------");
+        }
+    }
 
     /*
     createVehicles() // creates 10 cars, 10 trucks and 10 motorcycles.
@@ -21,21 +80,11 @@ public class Race {
     */
 
     public static void main(String[] args) {
-        List<Car> cars = new ArrayList<>();
+        Race bigRace = new Race();
 
-        Weather.setRaining();
+        bigRace.createVehicles();
+        bigRace.simulateRace(bigRace);
+        bigRace.printRaceResults();
 
-        for (int i = 1; i < 11; i++) {
-            cars.add(new Car());
-        }
-
-        for (Car thisCar : cars) {
-            System.out.println("Car name: " + thisCar.getName() + "\t\tCar speed: " + thisCar.getSpeed() + "\t\tCar distance traveled: " + thisCar.getDistanceTraveled());
-        }
-
-
-        System.out.println("Number of vehicles: " + Vehicle.noOfVehicles);
-
-        System.out.println("Is it raining?: " + Weather.isRaining);
     }
 }

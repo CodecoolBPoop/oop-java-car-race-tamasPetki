@@ -3,7 +3,6 @@ package com.codecool;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class Car extends Vehicle {
 
@@ -17,6 +16,15 @@ public class Car extends Vehicle {
         int randomIndexOfName2 = randomNumber.nextInt(10);
         setName(vehicleNames.get(randomIndexOfName1) + " " + vehicleNames.get(randomIndexOfName2));
     }
+
+    public void moveForAnHour(Race race) {
+        if(race.isThereABrokenTruck()) {
+            System.out.println("Broken truck on the way!");
+        }
+
+        setDistanceTraveled(super.getDistanceTraveled() + super.getSpeed());
+    }
+
 
     @Override
     public String toString() {

@@ -2,51 +2,51 @@ package com.codecool;
 
 import java.util.Random;
 
-public class Vehicle {
+class Vehicle {
 
-    int speed;
-    String name;
-    int distanceTraveled;
+    private int speed;
+    private String name;
+    private int distanceTraveled;
     static int noOfVehicles = 0;
 
     Random randomNumber = new Random();
 
-    public Vehicle() {
+    Vehicle() {
         this("Noname");
     }
 
-    public Vehicle(String name) {
+    Vehicle(String name) {
         this.name = name;
         noOfVehicles++;
     }
 
-    public int getSpeed() {
+    int getSpeed() {
         return speed;
     }
 
-    public void setSpeed(int speed) {
+    void setSpeed(int speed) {
         this.speed = speed;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
 
-    public int getDistanceTraveled() {
+    int getDistanceTraveled() {
         return distanceTraveled;
     }
 
-    public void setDistanceTraveled(int distanceTraveled) {
+    void setDistanceTraveled(int distanceTraveled) {
         this.distanceTraveled = distanceTraveled;
     }
 
 
-    public void MoveForAnHour() {
+    void MoveForAnHour() {
         setDistanceTraveled(distanceTraveled + speed);
     }
 

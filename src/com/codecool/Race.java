@@ -17,11 +17,14 @@ public class Race {
     */
 
     public static void main(String[] args) {
+        Weather.setRaining();
+
         Car auto = new Car();
         System.out.println("Car name:" + auto.getName() + "\t SPEED:" + auto.getSpeed() + "\t Vehicles no.: " + Vehicle.noOfVehicles);
 
 
         Car auto2 = new Car();
         System.out.println("Car name:" + auto2.getName() + "\t SPEED:" + auto2.getSpeed() + "\t Vehicles no.: " + Vehicle.noOfVehicles);
+        System.out.println(Weather.isRaining);
     }
 }

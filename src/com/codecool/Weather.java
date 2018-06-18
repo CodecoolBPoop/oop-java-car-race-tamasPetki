@@ -1,8 +1,24 @@
 package com.codecool;
 
+import java.util.Random;
+
 public class Weather {
 
+    static int chanceIs30;
 
+    static boolean isRaining;
+
+    static void setRaining() {
+        Random chanceRandom = new Random();
+        chanceIs30 = chanceRandom.nextInt(100);
+
+        if(chanceIs30<30) {
+            isRaining = true;
+        } else {
+            isRaining = false;
+        }
+
+    }
 
     /*
     static setRaining() // 30% chance of rain.

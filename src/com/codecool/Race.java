@@ -70,6 +70,8 @@ public class Race {
 
     public void printRaceResults() {
 
+        System.out.println("\n\n\u001B[44m\u001B[30mAND THE RESULTS ARE:\u001B[0m\n");
+
         for (Car thisCar : cars) {
 
             System.out.println(thisCar.getName() + "\n\tDistance: " + thisCar.getDistanceTraveled() + "\n--------------------");

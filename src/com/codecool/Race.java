@@ -21,20 +21,20 @@ public class Race {
     */
 
     public static void main(String[] args) {
-        List<Object> cars = new ArrayList<>();
+        List<Car> cars = new ArrayList<>();
 
         Weather.setRaining();
 
-        for(int i=1; i<11; i++) {
-        cars.add(new Car());
+        for (int i = 1; i < 11; i++) {
+            cars.add(new Car());
         }
 
-        for(Object car: cars) {
-            System.out.println("Car name: " + car);
+        for (Car thisCar : cars) {
+            System.out.println("Car name: " + thisCar.getName() + "\t\tCar speed: " + thisCar.getSpeed() + "\t\tCar distance traveled: " + thisCar.getDistanceTraveled());
         }
+
 
         System.out.println("Number of vehicles: " + Vehicle.noOfVehicles);
-
 
         System.out.println("Is it raining?: " + Weather.isRaining);
     }

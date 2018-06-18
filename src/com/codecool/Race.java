@@ -42,24 +42,25 @@ public class Race {
 
     public void simulateRace(Race race) {
         for (int round = 0; round < 50; round++) {
+
+            System.out.println("\n" + round + " hour(s)\n-------------------");
+
             for (int i = 0; i < 10; i++) {
+
                 cars.get(i).moveForAnHour(race);
-                System.out.println("Racecar with " + cars.get(i).getName() + " drived " + cars.get(i).getDistanceTraveled() + " kms");
+                System.out.println("Racecar with " + cars.get(i).getName() + "\n\tdrived " + cars.get(i).getDistanceTraveled() + " kms and his current speed is " + cars.get(i).getSpeed());
 
                 trucks.get(i).moveForAnHour(race);
-                System.out.println("Truck no. " + trucks.get(i).getName() + " drived " + trucks.get(i).getDistanceTraveled() + " kms");
+                System.out.println("Truck no. " + trucks.get(i).getName() + "\n\tdrived " + trucks.get(i).getDistanceTraveled() + " kms and his current speed is " + trucks.get(i).getSpeed());
 
                 if (trucks.get(i).getBreakdownTurnsLeft() > 0 && trucks.get(i).getBreakdownTurnsLeft() >= timeTillBrokenTruck) {
                     timeTillBrokenTruck = trucks.get(i).getBreakdownTurnsLeft();
-                    System.out.println("\u001B[31mNo. " + trucks.get(i).getName() + " truck is breaked down...");
+                    System.out.println("\u001B[31mNo. " + trucks.get(i).getName() + " truck is breaked down...\u001B[0m");
                 }
-
-                System.out.println("\u001B[0m");
-
                 motorcycles.get(i).moveForAnHour(race);
-                System.out.println("Motorcycle / " + motorcycles.get(i).getName() + " drived " + motorcycles.get(i).getDistanceTraveled() + " kms");
+                System.out.println("Motorcycle / " + motorcycles.get(i).getName() + "\n\tdrived " + motorcycles.get(i).getDistanceTraveled() + " kms and his current speed is " + motorcycles.get(i).getSpeed());
 
-
+                System.out.println();
             }
 
             Weather.setRaining();
@@ -70,6 +71,7 @@ public class Race {
     public void printRaceResults() {
 
         for (Car thisCar : cars) {
+
             System.out.println(thisCar.getName() + "\n\tDistance: " + thisCar.getDistanceTraveled() + "\n--------------------");
         }
 

@@ -14,6 +14,7 @@ public class Weather {
 
         if(chanceIs30<30) {
             isRaining = true;
+            System.out.println("\u001B[34mIt started to rain...\u001B[0m");
         } else {
             isRaining = false;
         }

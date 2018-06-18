@@ -22,7 +22,7 @@ public class Car extends Vehicle {
             System.out.println("Broken truck on the way!");
         }
 
-        setDistanceTraveled(super.getDistanceTraveled() + super.getSpeed());
+        setDistanceTraveled(getDistanceTraveled() + getSpeed());
     }
 
 

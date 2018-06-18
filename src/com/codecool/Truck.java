@@ -46,7 +46,7 @@ public class Truck extends Vehicle {
             }
         }
 
-        setDistanceTraveled(super.getDistanceTraveled() + super.getSpeed());
+        setDistanceTraveled(getDistanceTraveled() + getSpeed());
     }
 
 

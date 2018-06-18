@@ -10,7 +10,7 @@ import java.util.List;
 public class Race {
     List<Car> cars = new ArrayList<>();
     List<Truck> trucks = new ArrayList<>();
-
+    List<Motorcycle> motorcycles = new ArrayList<>();
 
     int timeTillBrokenTruck;
     private boolean isThereABrokenTruck = false;
@@ -33,6 +33,11 @@ public class Race {
         for (int i = 1; i < 11; i++) {
             trucks.add(new Truck());
         }
+
+
+        for (int i = 1; i < 11; i++) {
+            motorcycles.add(new Motorcycle());
+        }
     }
 
     public void simulateRace(Race race) {
@@ -51,6 +56,10 @@ public class Race {
 
                 System.out.println("\u001B[0m");
 
+                motorcycles.get(i).moveForAnHour(race);
+                System.out.println("Motorcycle / " + motorcycles.get(i).getName() + " drived " + motorcycles.get(i).getDistanceTraveled() + " kms");
+
+
             }
 
             Weather.setRaining();
@@ -66,6 +75,10 @@ public class Race {
 
         for (Truck thisTruck : trucks) {
             System.out.println("Truck no. " + thisTruck.getName() + "\n\tDistance: " + thisTruck.getDistanceTraveled() + "\n--------------------");
+        }
+
+        for (Motorcycle thisMotorcycle : motorcycles) {
+            System.out.println(thisMotorcycle.getName() + "\n\tDistance: " + thisMotorcycle.getDistanceTraveled() + "\n--------------------");
         }
     }
 
